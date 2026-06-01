@@ -3,40 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Inicio</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    @vite(['resources/css/app.css'])
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
 
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand text-white fw-bold" href="/">
             Portal Web
         </a>
 
         <div>
-            <a class="btn btn-outline-light me-2" href="/">
+            <a class="btn btn-nav me-2" href="/">
                 Inicio
             </a>
 
-            <a class="btn btn-outline-light me-2" href="/productos">
+            <a class="btn btn-nav me-2" href="/productos">
                 Productos
             </a>
 
-            <a class="btn btn-outline-light me-2" href="/contacto">
+            <a class="btn btn-nav me-2" href="/contacto">
                 Contacto
             </a>
 
-            <a class="btn btn-warning" href="/login">
+            <a class="btn btn-nav me-2" href="/registro">
+                Registro
+            </a>
+
+            <a class="btn btn-light" href="/login">
                 Login
             </a>
 
             <form method="POST" action="/logout" class="d-inline">
                 @csrf
-                <button type="submit">
+                <button type="submit" class="btn btn-danger ms-2">
                     Logout
                 </button>
             </form>
@@ -45,21 +50,19 @@
     </div>
 </nav>
 
-<div class="container mt-5">
+<section class="hero">
 
-    <div class="text-center">
+    <h1>Bienvenido al Portal Web</h1>
 
-        <h1 class="mb-4">
-            Bienvenido al Portal Web
-        </h1>
+    <p>
+        Proyecto desarrollado con Laravel, PHP y Programación Orientada a Objetos.
+    </p>
 
-        <p class="lead">
-            Proyecto realizado con Laravel y Programación Orientada a Objetos.
-        </p>
+    <a href="/productos" class="btn btn-dark mt-4">
+        Ver Productos
+    </a>
 
-    </div>
-
-</div>
+</section>
 
 </body>
 </html>

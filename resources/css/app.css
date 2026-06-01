@@ -5,7 +5,193 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+:root{
+    --bg:#f5f5f5;
+    --white:#ffffff;
+    --black:#111111;
+    --gray:#666666;
+    --border:#dddddd;
+}
+
+/* GENERAL */
+
+body{
+    background:var(--bg);
+    color:var(--black);
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar-custom{
+    background:#111;
+    padding:15px 0;
+}
+
+.btn-nav{
+    background:transparent;
+    color:white;
+    border:1px solid #444;
+}
+
+.btn-nav:hover{
+    background:white;
+    color:black;
+}
+
+/* HERO */
+
+.hero{
+    min-height:80vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:50px;
+}
+
+.hero h1{
+    font-size:4rem;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    font-size:1.2rem;
+    color:#666;
+}
+
+/* FORMULARIOS */
+
+.login-card,
+.registro-card,
+.contacto-card{
+    max-width:500px;
+    margin:60px auto;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    border:1px solid #ddd;
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+input:focus,
+textarea:focus{
+    outline:none;
+    border-color:#111;
+}
+
+/* PRODUCTOS */
+
+.productos-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+    margin-top:40px;
+}
+
+.product-card{
+    background:white;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:25px;
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+}
+
+/* ERROR 404 */
+
+.error-page{
+    height:80vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+.error-page h1{
+    font-size:8rem;
+    font-weight:700;
+}
+
+.error-page p{
+    color:#666;
+}
+
+.login-card{
+    max-width:450px;
+    margin:80px auto;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    border:1px solid #ddd;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.login-card h2{
+    font-weight:700;
+    color:#111;
+}
+
+.login-card a{
+    color:#111;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.login-card a:hover{
+    color:#666;
+}
+
+.alert{
+    border-radius:10px;
+}
+
+.registro-card{
+    max-width:500px;
+    margin:60px auto;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    border:1px solid #ddd;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.registro-card h2{
+    font-weight:700;
+    color:#111;
+}
+
+.registro-card a{
+    color:#111;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.registro-card a:hover{
+    color:#666;
 }

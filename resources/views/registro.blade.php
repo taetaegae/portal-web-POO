@@ -1,47 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    @vite(['resources/css/app.css'])
 </head>
 <body>
 
-<h1>Registro de Usuario</h1>
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+        <a class="navbar-brand text-white fw-bold" href="/">
+            Portal Web
+        </a>
+    </div>
+</nav>
 
-@if ($errors->any())
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-@endif
+<div class="container">
 
-<form method="POST" action="/registro">
-    @csrf
+    <div class="registro-card">
 
-    <label>Nombre:</label>
-    <input type="text" name="name" required>
+        <h2 class="text-center mb-4">
+            Crear Cuenta
+        </h2>
 
-    <br><br>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-    <label>Correo:</label>
-    <input type="email" name="email" required>
+        <form method="POST" action="/registro">
+            @csrf
 
-    <br><br>
+            <div class="mb-3">
+                <label class="form-label">
+                    Nombre Completo
+                </label>
 
-    <label>Contraseña:</label>
-    <input type="password" name="password" required>
+                <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    required
+                >
+            </div>
 
-    <br><br>
+            <div class="mb-3">
+                <label class="form-label">
+                    Correo Electrónico
+                </label>
 
-    <label>Confirmar contraseña:</label>
-    <input type="password" name="password_confirmation" required>
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    required
+                >
+            </div>
 
-    <br><br>
+            <div class="mb-3">
+                <label class="form-label">
+                    Contraseña
+                </label>
 
-    <button type="submit">
-        Registrarse
-    </button>
-</form>
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">
+                    Confirmar Contraseña
+                </label>
+
+                <input
+                    type="password"
+                    name="password_confirmation"
+                    class="form-control"
+                    required
+                >
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-dark w-100">
+                Registrarse
+            </button>
+
+        </form>
+
+        <div class="text-center mt-4">
+            <p>
+                ¿Ya tienes una cuenta?
+                <a href="/login">
+                    Inicia sesión
+                </a>
+            </p>
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
