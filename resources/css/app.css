@@ -246,3 +246,31 @@ textarea:focus{
     margin-bottom:20px;
     font-weight:bold;
 } 
+
+.error-page{
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:20px;
+}
+
+.error-page h1{
+    font-size:8rem;
+    font-weight:700;
+    color:#111;
+    margin-bottom:10px;
+}
+
+.error-page h2{
+    font-weight:600;
+}
+
+.error-page p{
+    color:#666;
+    max-width:500px;
+}
