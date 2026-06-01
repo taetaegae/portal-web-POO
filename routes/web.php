@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\AuthController;
+
+Route::get('/registro', [AuthController::class, 'mostrarRegistro']);
+
+Route::post('/registro', [AuthController::class, 'registrar']); 
 
 Route::get('/', function () {
     return view('inicio');
@@ -18,3 +23,5 @@ Route::get('/contacto', function () {
 Route::get('/login', [UsuarioController::class, 'mostrarLogin']);
 
 Route::post('/login', [UsuarioController::class, 'procesarLogin']);
+
+Route::post('/logout', [UsuarioController::class, 'logout']);

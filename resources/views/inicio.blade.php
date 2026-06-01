@@ -33,6 +33,13 @@
             <a class="btn btn-warning" href="/login">
                 Login
             </a>
+
+            <form method="POST" action="/logout" class="d-inline">
+                @csrf
+                <button type="submit">
+                    Logout
+                </button>
+            </form>
         </div>
 
     </div>

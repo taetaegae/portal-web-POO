@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
 {
@@ -10,6 +11,7 @@ class UsuarioController extends Controller
     {
         return view('login');
     }
+
     public function procesarLogin(Request $request)
     {
         $request->validate([
@@ -17,6 +19,28 @@ class UsuarioController extends Controller
             'password' => 'required|min:8',
         ]);
 
-        return back()->with('success', 'Datos validos');
+        if (Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password
+        ])) {
+
+            $request->session()->regenerate();
+
+            return redirect('/');
+        }
+
+        return back()->withErrors([
+            'email' => 'Correo o contraseña incorrectos'
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }
