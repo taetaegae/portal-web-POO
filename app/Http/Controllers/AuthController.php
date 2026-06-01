@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
@@ -20,6 +21,16 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8|confirmed'
         ]);
+
+        // Verify reCAPTCHA
+        $response = Http::post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => env('RECAPTCHA_SECRET_KEY'),
+            'response' => $request->input('g_recaptcha_response')
+        ]);
+
+        if (! $response->json('success')) {
+            return back()->with('error', 'Por favor, verifica que eres un humano.');
+        }
 
         User::create([
             'name' => $request->name,

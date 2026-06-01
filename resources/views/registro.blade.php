@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     @vite(['resources/css/app.css'])
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
@@ -92,6 +94,13 @@
                 >
             </div>
 
+            <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+
+            @if ($errors->has('captcha'))
+                <p>{{ $errors->first('captcha') }}</p>
+            @endif
+
+            <br>
             <button
                 type="submit"
                 class="btn btn-dark w-100">
