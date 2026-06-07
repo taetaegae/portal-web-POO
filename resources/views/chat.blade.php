@@ -28,6 +28,14 @@
                 Contacto
             </a>
 
+            <a class="btn btn-nav me-2" href="/chat">
+                Chat
+            </a>
+
+            <a class="btn btn-nav me-2" href="/carrito">
+                Carrito
+            </a>
+
             <form method="POST" action="/logout" class="d-inline">
                 @csrf
                 <button type="submit" class="btn btn-danger ms-2">

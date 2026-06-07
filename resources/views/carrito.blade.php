@@ -12,12 +12,36 @@
 
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
+
         <a class="navbar-brand text-white fw-bold" href="/">
             Portal Web
         </a>
+
+        <div>
+            <a class="btn btn-nav me-2" href="/">
+                Inicio
+            </a>
+
+            <a class="btn btn-nav me-2" href="/productos">
+                Productos
+            </a>
+
+            <a class="btn btn-nav me-2" href="/contacto">
+                Contacto
+            </a>
+
+            
+
+            <form method="POST" action="/logout" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-danger ms-2">
+                    Logout
+                </button>
+            </form>
+        </div>
+
     </div>
 </nav>
-
 <div class="carrito-card">
 
     <h1>Mi Carrito</h1>
