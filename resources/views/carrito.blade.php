@@ -175,7 +175,6 @@ function mostrarCampos()
         tarjeta.style.display = 'none';
     }
 }
-}
 
 </script>
 </body>

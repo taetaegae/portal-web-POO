@@ -27,6 +27,12 @@
             Iniciar Sesión
         </h2>
 
+        <div class="text-center mb-4">
+            <a href="/recuperar-password" class="btn btn-outline-primary">
+                ¿Olvidaste tu contraseña?
+            </a>
+        </div>
+
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul class="mb-0">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -69,7 +71,7 @@ class UsuarioController extends Controller
         return redirect('/carrito');
     }
     public function pagar(Request $request)
-{
+    {
     $metodo = $request->metodo_pago;
 
     if($metodo == 'tarjeta')
@@ -87,5 +89,29 @@ class UsuarioController extends Controller
     return view('pago-exitoso', [
         'metodo' => $metodo
     ]);
-}
+    }
+
+    public function mostrarRecuperarPassword()
+    {
+        return view('recuperar-password');
+    }
+
+    public function actualizarPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed'
+        ]);
+
+        $usuario = User::where('email', $request->email)->first();
+
+        if (!$usuario) {
+            return back()->with('error', 'Correo no encontrado');
+        }
+
+        $usuario->password = Hash::make($request->password);
+        $usuario->save();
+
+        return redirect('/login')->with('success', 'Contraseña actualizada correctamente');
+    }
 }

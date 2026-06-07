@@ -24,6 +24,10 @@ Route::get('/login', [UsuarioController::class, 'mostrarLogin']);
 
 Route::post('/login', [UsuarioController::class, 'procesarLogin']);
 
+Route::get('/recuperar-password', [UsuarioController::class, 'mostrarRecuperarPassword']);
+
+Route::post('/recuperar-password', [UsuarioController::class, 'actualizarPassword']);
+
 Route::post('/logout', [UsuarioController::class, 'logout']);
 
 Route::get('/chat', [UsuarioController::class, 'mostrarChat']);
@@ -32,3 +36,6 @@ Route::get('/carrito', [UsuarioController::class, 'mostrarCarrito']);
 Route::post('/agregar-carrito', [UsuarioController::class, 'agregarCarrito']);
 Route::post('/pagar', [UsuarioController::class, 'pagar']);
 
+Route::get('/recuperar-password', [UsuarioController::class, 'mostrarRecuperarPassword']);
+
+Route::post('/recuperar-password', [UsuarioController::class, 'actualizarPassword']);
