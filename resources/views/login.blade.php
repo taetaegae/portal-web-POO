@@ -74,6 +74,7 @@
             </div>
 
             <button
+                <a href="/productos"
                 type="submit"
                 class="btn btn-dark w-100">
                 Ingresar

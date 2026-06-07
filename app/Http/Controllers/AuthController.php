@@ -22,14 +22,18 @@ class AuthController extends Controller
             'password' => 'required|min:8|confirmed'
         ]);
 
-        // Verify reCAPTCHA
-        $response = Http::post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => env('RECAPTCHA_SECRET_KEY'),
-            'response' => $request->input('g_recaptcha_response')
-        ]);
+        $response = Http::asForm()->post(
+            'https://www.google.com/recaptcha/api/siteverify',
+            [
+                'secret' => env('RECAPTCHA_SECRET_KEY'),
+                'response' => $request->input('g-recaptcha-response')
+            ]
+        );
 
-        if (! $response->json('success')) {
-            return back()->with('error', 'Por favor, verifica que eres un humano.');
+        if (!$response->json('success')) {
+            return back()->withErrors([
+                'captcha' => 'Debes completar el CAPTCHA correctamente.'
+            ]);
         }
 
         User::create([
@@ -38,6 +42,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        return redirect('/login')->with('success', 'Usuario registrado correctamente');
+        return redirect('/login')
+            ->with('success', 'Usuario registrado correctamente');
     }
 }

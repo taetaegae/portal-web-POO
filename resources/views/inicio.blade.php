@@ -27,10 +27,6 @@
                 Productos
             </a>
 
-            <a class="btn btn-nav me-2" href="/contacto">
-                Contacto
-            </a>
-
             <a class="btn btn-nav me-2" href="/registro">
                 Registro
             </a>
@@ -55,7 +51,7 @@
     <h1>Bienvenido al Portal Web</h1>
 
     <p>
-        Proyecto desarrollado con Laravel, PHP y Programación Orientada a Objetos.
+        Bienvenido a nuestro portal web. Descubre nuestros productos. 
     </p>
 
     <a href="/productos" class="btn btn-dark mt-4">

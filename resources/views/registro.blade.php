@@ -94,13 +94,14 @@
                 >
             </div>
 
-            <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
-
             @if ($errors->has('captcha'))
                 <p>{{ $errors->first('captcha') }}</p>
             @endif
 
             <br>
+
+            <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
+            <P>{{ env('RECAPTCHA_SITE_KEY')}}</p>
             <button
                 type="submit"
                 class="btn btn-dark w-100">

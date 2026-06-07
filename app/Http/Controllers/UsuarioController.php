@@ -43,4 +43,9 @@ class UsuarioController extends Controller
 
         return redirect('/login');
     }
+
+    public function mostrarChat()
+    {
+        return view('chat');
+    }
 }

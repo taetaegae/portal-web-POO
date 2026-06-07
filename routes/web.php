@@ -25,3 +25,5 @@ Route::get('/login', [UsuarioController::class, 'mostrarLogin']);
 Route::post('/login', [UsuarioController::class, 'procesarLogin']);
 
 Route::post('/logout', [UsuarioController::class, 'logout']);
+
+Route::get('/chat', [UsuarioController::class, 'mostrarChat']);
