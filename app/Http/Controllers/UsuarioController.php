@@ -48,4 +48,44 @@ class UsuarioController extends Controller
     {
         return view('chat');
     }
+    public function mostrarCarrito()
+    {
+    $carrito = session()->get('carrito', []);
+
+    return view('carrito', compact('carrito'));
+    }
+
+    public function agregarCarrito(Request $request)
+    {
+        $carrito = session()->get('carrito', []);
+
+        $carrito[] = [
+            'nombre' => $request->nombre,
+            'precio' => $request->precio
+        ];
+
+        session()->put('carrito', $carrito);
+
+        return redirect('/carrito');
+    }
+    public function pagar(Request $request)
+{
+    $metodo = $request->metodo_pago;
+
+    if($metodo == 'tarjeta')
+    {
+        $request->validate([
+            'numero_tarjeta' => 'required|min:16',
+            'titular' => 'required',
+            'vencimiento' => 'required',
+            'cvv' => 'required|min:3'
+        ]);
+    }
+
+    session()->forget('carrito');
+
+    return view('pago-exitoso', [
+        'metodo' => $metodo
+    ]);
+}
 }

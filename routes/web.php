@@ -27,3 +27,8 @@ Route::post('/login', [UsuarioController::class, 'procesarLogin']);
 Route::post('/logout', [UsuarioController::class, 'logout']);
 
 Route::get('/chat', [UsuarioController::class, 'mostrarChat']);
+
+Route::get('/carrito', [UsuarioController::class, 'mostrarCarrito']);
+Route::post('/agregar-carrito', [UsuarioController::class, 'agregarCarrito']);
+Route::post('/pagar', [UsuarioController::class, 'pagar']);
+

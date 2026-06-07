@@ -27,6 +27,10 @@
                 Productos
             </a>
 
+            <a class="btn btn-nav me-2" href="/contacto">
+                Contacto
+            </a>
+
             <a class="btn btn-nav me-2" href="/registro">
                 Registro
             </a>

@@ -16,6 +16,7 @@
         <a class="navbar-brand text-white fw-bold" href="/">
             Portal Web
         </a>
+
         <div>
             <a class="btn btn-nav me-2" href="/">
                 Inicio
@@ -29,16 +30,12 @@
                 Contacto
             </a>
 
-            <a class="btn btn-nav me-2" href="/registro">
-                Registro
-            </a>
-
             <a class="btn btn-nav me-2" href="/chat">
                 Chat
             </a>
 
-            <a class="btn btn-light" href="/login">
-                Login
+            <a class="btn btn-nav me-2" href="/carrito">
+                Carrito
             </a>
 
             <form method="POST" action="/logout" class="d-inline">
@@ -60,46 +57,93 @@
 
     <div class="productos-grid">
 
-    <div class="product-card">
-        <h3>Serúm Anti Imperfecciones Garnier Express Aclara</h3>
-        <p>
-            Marca: Garnier
-            Tipo de piel: Grasa
-            Zonas de aplicación: Rostro
-            Formato del producto: Sérum
-            Formato de venta: Unidad.
-        </p>
-        <h5>$96.00</h5>
-        <a href="/carrito" class="btn btn-dark w-100">
-            Comprar
-        </a>
-    </div>
+        <!-- Producto 1 -->
+        <div class="product-card">
+            <h3>Serúm Anti Imperfecciones Garnier Express Aclara</h3>
 
-    <div class="product-card">
-        <h3>Tablet Huawei Matepad SE 11 8gb+128gb Gris, M-Pencil Incluido</h3>
-        <p>
-            Capacidad: 128 GB
-            Cámaras traseras: 8 Mpx
-            Tamaño de la pantalla: 11"
-        </p>
-        <h5>$3,429.00</h5>
-        <a href="/carrito" class="btn btn-dark w-100">
-            Comprar
-        </a>
-    </div>
+            <p>
+                Marca: Garnier <br>
+                Tipo de piel: Grasa <br>
+                Zonas de aplicación: Rostro <br>
+                Formato del producto: Sérum <br>
+                Formato de venta: Unidad
+            </p>
 
-    <div class="product-card">
-        <h3>Consola Nintendo Switch 2 + Mario Kart World Bundle</h3>
-        <p>
-            Capacidad: 256 GB
-            Con Wi-Fi: Sí
-            Tipo de consola: Híbrida
-            Cantidad de controles incluidos: 2.
-        </p>
-        <h5>$10,249.00</h5>
-        <a href="/carrito" class="btn btn-dark w-100">
-            Comprar
-        </a>
+            <h5>$96.00</h5>
+
+            <form method="POST" action="/agregar-carrito">
+                @csrf
+
+                <input type="hidden" name="nombre"
+                    value="Serúm Anti Imperfecciones Garnier Express Aclara">
+
+                <input type="hidden" name="precio"
+                    value="96">
+
+                <button type="submit"
+                    class="btn btn-dark w-100">
+                    Agregar al carrito
+                </button>
+            </form>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="product-card">
+            <h3>Tablet Huawei Matepad SE 11 8GB + 128GB</h3>
+
+            <p>
+                Capacidad: 128 GB <br>
+                Cámaras traseras: 8 MP <br>
+                Tamaño de pantalla: 11"
+            </p>
+
+            <h5>$3,429.00</h5>
+
+            <form method="POST" action="/agregar-carrito">
+                @csrf
+
+                <input type="hidden" name="nombre"
+                    value="Tablet Huawei Matepad SE 11">
+
+                <input type="hidden" name="precio"
+                    value="3429">
+
+                <button type="submit"
+                    class="btn btn-dark w-100">
+                    Agregar al carrito
+                </button>
+            </form>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-card">
+            <h3>Consola Nintendo Switch 2 + Mario Kart World Bundle</h3>
+
+            <p>
+                Capacidad: 256 GB <br>
+                Con Wi-Fi: Sí <br>
+                Tipo de consola: Híbrida <br>
+                Incluye 2 controles
+            </p>
+
+            <h5>$10,249.00</h5>
+
+            <form method="POST" action="/agregar-carrito">
+                @csrf
+
+                <input type="hidden" name="nombre"
+                    value="Nintendo Switch 2 + Mario Kart World Bundle">
+
+                <input type="hidden" name="precio"
+                    value="10249">
+
+                <button type="submit"
+                    class="btn btn-dark w-100">
+                    Agregar al carrito
+                </button>
+            </form>
+        </div>
+
     </div>
 
 </div>

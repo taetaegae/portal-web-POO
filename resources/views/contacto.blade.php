@@ -29,14 +29,6 @@
                 Contacto
             </a>
 
-            <a class="btn btn-nav me-2" href="/registro">
-                Registro
-            </a>
-
-            <a class="btn btn-light" href="/login">
-                Login
-            </a>
-
             <form method="POST" action="/logout" class="d-inline">
                 @csrf
                 <button type="submit" class="btn btn-danger ms-2">
